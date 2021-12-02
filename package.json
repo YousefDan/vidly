@@ -4,11 +4,14 @@
   "description": "About Renting Movie",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon backend/server"
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Youssef Dan",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",

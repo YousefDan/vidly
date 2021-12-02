@@ -33,7 +33,7 @@ router.post(
     }
     const token = user.generateToken();
 
-    res.status(201).send({
+    res.status(200).json({
       _id: user._id,
       username: user.username,
       email: user.email,

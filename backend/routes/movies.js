@@ -18,11 +18,10 @@ router.post(
     }
 
     let movie = await Movie.findOne({ title: req.body.title });
-    if(movie){
-        return res.status(400).send("movie already exist!")
+    if (movie) {
+      return res.status(400).send("movie already exist!");
     }
 
-    
     movie = new Movie(
       _.pick(req.body, [
         "title",
@@ -57,7 +56,9 @@ router.post(
 router.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const result = await Movie.find().select("-__v -createdAt -updatedAt");
+    const result = await Movie.find()
+      .select("-__v -createdAt -updatedAt")
+      .sort({ title: 1 });
     res.status(200).send(result);
   })
 );
